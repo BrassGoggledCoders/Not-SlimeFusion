@@ -1,0 +1,22 @@
+[
+  {
+    "modid": "slimefusion",
+    "name": "SlimeFusion",
+    "description": "A mod of Slimes",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Tris",
+      "SkySom",
+      "warlordjones"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": [
+      "base"
+    ]
+  }
+]
