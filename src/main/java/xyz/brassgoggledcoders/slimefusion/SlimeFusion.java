@@ -13,7 +13,7 @@ public class SlimeFusion {
 
     public static final String MOD_ID = "slimefusion";
     public static final String MOD_NAME = "SlimeFusion";
-    public static final String VERSION = "1.0.0-SNAPSHOT";
+    public static final String VERSION = "@VERSION@";
 
     @EventHandler
     public void init(FMLInitializationEvent event) {

@@ -19,10 +19,19 @@ archivesBaseName = modBaseName
 
 minecraft {
     version = project.minecraftVersion + "-" + project.forgeVersion
-    runDir = "run"
 
     mappings = project.mcpVersion
+    runDir = "run/"
+    useDepAts = true
+
+    replace "@VERSION@", project.version
+    replaceIn "SlimeFusion.java"
+
+    replace "base@[0.0.0,];", "base@[" + baseVersion +  ",];"
 }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
