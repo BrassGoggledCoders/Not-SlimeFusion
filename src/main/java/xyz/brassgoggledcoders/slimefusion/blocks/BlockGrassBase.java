@@ -16,7 +16,6 @@ import javax.annotation.Nonnull;
 import java.util.Random;
 
 public class BlockGrassBase extends BlockBase implements IGrowable {
-    public final static PropertyEnum<DirtType> DIRT_TYPE = PropertyEnum.create("dirt_type", DirtType.class);
 
     public BlockGrassBase(String name) {
         super(Material.GLASS, name);
@@ -25,12 +24,12 @@ public class BlockGrassBase extends BlockBase implements IGrowable {
     @Override
     @Nonnull
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, DIRT_TYPE);
+        return new BlockStateContainer(this, DirtType.PROPERTY);
     }
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        return (4 * state.getValue(DIRT_TYPE).ordinal());
+        return (4 * state.getValue(DirtType.PROPERTY).ordinal());
     }
 
     @Override
@@ -38,7 +37,7 @@ public class BlockGrassBase extends BlockBase implements IGrowable {
     @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int metaData) {
         IBlockState blockState = getDefaultState();
-        blockState = blockState.withProperty(DIRT_TYPE, DirtType.values()[metaData / 4]);
+        blockState = blockState.withProperty(DirtType.PROPERTY, DirtType.values()[metaData / 4]);
         return blockState;
     }
 
@@ -46,7 +45,7 @@ public class BlockGrassBase extends BlockBase implements IGrowable {
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         if (!world.isRemote) {
             if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2) {
-                world.setBlockState(pos, state.withProperty(DIRT_TYPE, DirtType.DIRT));
+                world.setBlockState(pos, state.withProperty(DirtType.PROPERTY, DirtType.DIRT));
             } else {
                 if (world.getLightFromNeighbors(pos.up()) >= 9) {
                     for (int i = 0; i < 4; ++i) {
@@ -59,9 +58,9 @@ public class BlockGrassBase extends BlockBase implements IGrowable {
                         IBlockState stateUP = world.getBlockState(blockpos.up());
                         IBlockState stateHere = world.getBlockState(blockpos);
 
-                        if (stateHere.getBlock() == this && stateHere.getValue(DIRT_TYPE) == DirtType.DIRT &&
+                        if (stateHere.getBlock() == this && stateHere.getValue(DirtType.PROPERTY) == DirtType.DIRT &&
                                 world.getLightFromNeighbors(blockpos.up()) >= 4 && stateUP.getLightOpacity(world, pos.up()) <= 2) {
-                            world.setBlockState(blockpos, stateHere.withProperty(DIRT_TYPE, DirtType.GRASS));
+                            world.setBlockState(blockpos, stateHere.withProperty(DirtType.PROPERTY, DirtType.GRASS));
                         }
                     }
                 }
