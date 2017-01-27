@@ -5,6 +5,7 @@ import com.teamacronymcoders.base.modulesystem.ModuleBase;
 import com.teamacronymcoders.base.registry.BlockRegistry;
 import com.teamacronymcoders.base.registry.config.ConfigRegistry;
 import xyz.brassgoggledcoders.slimefusion.modules.grasses.blocks.BlockStakteroGrass;
+import xyz.brassgoggledcoders.slimefusion.modules.grasses.blocks.BlockStakteroTallGrass;
 
 import static xyz.brassgoggledcoders.slimefusion.SlimeFusion.MOD_ID;
 
@@ -18,5 +19,6 @@ public class ModuleGrasses extends ModuleBase {
     @Override
     public void registerBlocks(ConfigRegistry configRegistry, BlockRegistry blockRegistry) {
         blockRegistry.register(new BlockStakteroGrass());
+        blockRegistry.register(new BlockStakteroTallGrass());
     }
 }
