@@ -1,6 +1,7 @@
 package xyz.brassgoggledcoders.slimefusion;
 
 import com.teamacronymcoders.base.BaseModFoundation;
+import com.teamacronymcoders.base.featuresystem.FeatureHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -8,6 +9,8 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+import java.util.Locale;
 
 import static xyz.brassgoggledcoders.slimefusion.SlimeFusion.*;
 
@@ -23,6 +26,7 @@ public class SlimeFusion extends BaseModFoundation<SlimeFusion> {
 
     public SlimeFusion() {
         super(MOD_ID, MOD_NAME, VERSION, CreativeTabs.MISC);
+        FeatureHandler.requestFeature("MATERIALS");
     }
 
     @EventHandler
@@ -38,6 +42,11 @@ public class SlimeFusion extends BaseModFoundation<SlimeFusion> {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
+    }
+
+    @Override
+    public String getConfigFolderName() {
+        return this.getID();
     }
 
     @Override
