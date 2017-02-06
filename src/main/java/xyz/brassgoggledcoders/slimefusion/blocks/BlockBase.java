@@ -4,20 +4,22 @@ import com.teamacronymcoders.base.IBaseMod;
 import com.teamacronymcoders.base.IModAware;
 import com.teamacronymcoders.base.blocks.IAmBlock;
 import com.teamacronymcoders.base.blocks.IHasItemBlock;
-import com.teamacronymcoders.base.client.models.IHasModel;
 import com.teamacronymcoders.base.items.IHasSubItems;
-import com.teamacronymcoders.base.items.ItemBlockGeneric;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BlockBase extends Block implements IHasItemBlock, IModAware, IHasSubItems, IAmBlock {
@@ -86,6 +88,13 @@ public class BlockBase extends Block implements IHasItemBlock, IModAware, IHasSu
         this.mod = mod;
     }
 
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, List<ItemStack> list)
+    {
+        list.addAll(this.getAllSubItems(new ArrayList<>()));
+    }
+
+
     @Override
     public List<ItemStack> getAllSubItems(List<ItemStack> itemStacks) {
         itemStacks.add(new ItemStack(this, 1));
@@ -95,5 +104,10 @@ public class BlockBase extends Block implements IHasItemBlock, IModAware, IHasSu
     @Override
     public Block getBlock() {
         return this;
+    }
+
+    @Override
+    public Item getItem() {
+        return this.getItemBlock();
     }
 }

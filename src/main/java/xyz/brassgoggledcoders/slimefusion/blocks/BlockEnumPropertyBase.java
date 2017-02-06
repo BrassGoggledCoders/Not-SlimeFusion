@@ -30,6 +30,8 @@ public class BlockEnumPropertyBase<E extends Enum<E> & IStringSerializable> exte
     }
 
     @Override
+    @Nonnull
+    @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int metadata) {
         return this.getDefaultState().withProperty(this.property, this.enumValues[metadata]);
     }

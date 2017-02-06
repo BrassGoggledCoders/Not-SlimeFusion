@@ -9,11 +9,14 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = SlimeFusion.MOD_ID, name = SlimeFusion.MOD_NAME, version = SlimeFusion.VERSION)
+import static xyz.brassgoggledcoders.slimefusion.SlimeFusion.*;
+
+@Mod(modid = MOD_ID, name = MOD_NAME, version = VERSION, dependencies = DEPENDS)
 public class SlimeFusion extends BaseModFoundation<SlimeFusion> {
     public static final String MOD_ID = "slimefusion";
     public static final String MOD_NAME = "SlimeFusion";
     public static final String VERSION = "@VERSION@";
+    public static final String DEPENDS = "required-after:base@[0.0.0,);";
 
     @Instance(MOD_ID)
     public static SlimeFusion instance;

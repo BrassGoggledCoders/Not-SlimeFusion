@@ -1,10 +1,7 @@
 package xyz.brassgoggledcoders.slimefusion.blocks;
 
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
