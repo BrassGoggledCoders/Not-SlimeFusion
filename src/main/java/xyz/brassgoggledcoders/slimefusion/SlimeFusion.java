@@ -26,7 +26,7 @@ public class SlimeFusion extends BaseModFoundation<SlimeFusion> {
 
     public SlimeFusion() {
         super(MOD_ID, MOD_NAME, VERSION, CreativeTabs.MISC);
-        FeatureHandler.requestFeature("MATERIALS");
+        FeatureHandler.requestFeature("MATERIALS", MOD_ID);
     }
 
     @EventHandler
